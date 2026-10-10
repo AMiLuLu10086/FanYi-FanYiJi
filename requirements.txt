@@ -1,0 +1,15 @@
+# 依赖清单（.venv 里执行 pip install -r requirements.txt）
+# 需要 Python 3.11 及以上（本项目在 3.12.10 上开发）
+
+# ── 深度学习运行时「万能计算器」──
+# 这是整个项目 95% 的体积来源（装完约 2.5GB），它本身支持图像/语音/大模型/显卡，
+# 我们只用到其中的矩阵乘法。想瘦身只能换专用推理引擎（ONNX / CTranslate2）。
+# 在 Windows 上 `pip install torch` 拿到的是 CPU 版，不会有 2GB 的 CUDA 部分。
+torch>=2.2
+
+# ── 模型加载与推理 ──
+transformers>=4.40
+
+# ── 分词（OPUS-MT 用 SentencePiece 词表）──
+sentencepiece>=0.1.99
+sacremoses>=0.1.1

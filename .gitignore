@@ -1,0 +1,23 @@
+# 虚拟环境与模型缓存（体积大，不需要进版本库）
+.venv/
+models/
+runs/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 运行期/安装期临时目录（见 ws_tmp.py 与 README 第六节）
+.wtmp/
+.build-tmp/
+.tmp/
+torchinductor_*/
+tmp*/
+.pnpm-store/
+
+# 安装脚本下载的 pip 引导文件
+get-pip.py
+
+# 渲染测试用的临时依赖（需要时按 _domtest/README 说明重装）
+_domtest/node_modules/
+_domtest/edge-profile*/

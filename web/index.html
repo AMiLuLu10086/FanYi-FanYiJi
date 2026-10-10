@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>20 遍翻译机</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <h1>20 遍翻译机</h1>
+  <p class="sub">一个中文的句子将被翻译成为英文，然后它将被翻译回到中文。此过程将会被进行 N 次。最后，一个中文的结果将会被提供给你。</p>
+</header>
+
+<main>
+  <!-- 输入区 -->
+  <section class="panel">
+    <label class="field">
+      <span class="label">将被进行翻译的中文</span>
+      <textarea id="input" rows="5" placeholder="例如：他称，他制作了一个 WiFi 门铃。"></textarea>
+    </label>
+
+    <div class="controls">
+      <label class="inline">
+        <span class="label">进行翻译的次数</span>
+        <input id="rounds" type="number" min="1" max="50" value="10">
+      </label>
+      <button id="start" class="primary">开始翻译</button>
+      <button id="stop" class="ghost" disabled>停止</button>
+      <span id="engine" class="engine">模型状态：检查中…</span>
+    </div>
+    <p id="alert" class="alert" hidden></p>
+    <p class="hint">作为一轮，它将包含两次翻译（中→英与英→中）。因此，当 10 轮被进行时，总共 20 次翻译将会被完成。</p>
+  </section>
+
+  <!-- 进度 -->
+  <section class="panel progress-panel" id="progressPanel" hidden>
+    <div class="progress-head">
+      <span id="progressText">翻译正在被进行…</span>
+      <span id="progressTime" class="muted"></span>
+    </div>
+    <div class="bar"><div id="bar" class="bar-inner"></div></div>
+  </section>
+
+  <!-- 作为输入的中文 -->
+  <section class="panel start-panel" id="startPanel" hidden>
+    <div class="final-head">
+      <h2>作为输入的中文</h2>
+      <button id="copyStart" class="ghost small">复制</button>
+    </div>
+    <p id="startText" class="final-text"></p>
+  </section>
+
+  <!-- 最终的中文结果 -->
+  <section class="panel final-panel" id="finalPanel" hidden>
+    <div class="final-head">
+      <h2>最终的中文结果</h2>
+      <button id="copyFinal" class="ghost small">复制</button>
+    </div>
+    <p id="finalText" class="final-text"></p>
+  </section>
+
+  <!-- 关于每一轮的过程 -->
+  <section class="rounds-head" id="roundsHead" hidden>
+    <h2>关于每一轮的过程（在其中，中英的原文与译文将被展示）</h2>
+    <button id="copyAll" class="ghost small">复制全部过程</button>
+  </section>
+  <section id="rounds" class="rounds"></section>
+
+  <!-- 历史 -->
+  <section class="panel">
+    <div class="history-head">
+      <h2>历史性的运行</h2>
+      <div class="history-actions">
+        <select id="history"><option value="">（还没有任何记录被找到）</option></select>
+        <button id="loadHistory" class="ghost small">查看</button>
+        <button id="exportMd" class="ghost small" disabled>导出 Markdown</button>
+      </div>
+    </div>
+    <p class="hint">每一次运行的记录将会被保存在项目的 <code>runs/</code> 目录之中，其格式为 JSON。即使页面被刷新，它们也不会被丢失。</p>
+  </section>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

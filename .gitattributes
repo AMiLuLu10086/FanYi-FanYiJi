@@ -1,0 +1,19 @@
+# 统一换行符，避免不同系统 clone 之后出现整文件"被修改"的假 diff
+#
+# 规则：
+#   - .bat / .cmd 必须是 CRLF，否则 cmd.exe 解析会出问题
+#   - 其余文本文件统一 LF，跨平台干净
+#   - 图片等二进制文件不做换行转换
+* text=auto eol=lf
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.safetensors binary
+*.bin binary
+*.spm binary
