@@ -78,7 +78,7 @@ def can_import(module: str) -> bool:
 
 def main() -> int:
     print("=" * 62)
-    print("  20 遍翻译机 — 建环境")
+    print("  Round-Trip Amnesia（往返失忆症）— 建环境")
     print("=" * 62)
     print(f"  项目目录：{BASE_DIR}")
 

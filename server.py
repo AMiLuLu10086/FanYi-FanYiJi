@@ -263,7 +263,7 @@ def main() -> int:
     config.RUNS_DIR.mkdir(parents=True, exist_ok=True)
 
     print("=" * 62)
-    print("  20 遍翻译机")
+    print("  Round-Trip Amnesia（往返失忆症）")
     print("=" * 62)
     print(f"  模型目录：{config.MODELS_DIR}")
     print(f"  记录目录：{config.RUNS_DIR}")

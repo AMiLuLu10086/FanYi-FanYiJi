@@ -33,6 +33,7 @@ header {
 }
 
 h1 { margin: 0 0 6px; font-size: 26px; letter-spacing: 0.5px; }
+h1 .zh { margin-left: 10px; font-size: 15px; font-weight: normal; color: var(--muted); letter-spacing: 1px; }
 h2 { margin: 0; font-size: 17px; }
 
 .sub { margin: 0; color: var(--muted); font-size: 13.5px; }
